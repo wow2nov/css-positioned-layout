@@ -1,1 +1,103 @@
 /* Start coding here */
+/* Start coding here */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background: white; /* เปลี่ยนเป็นสีขาวตามรูป */
+  }
+  
+  .app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    background: #7a7a7a;
+    color: white;
+    padding: 15px 20px;
+    font-size: 22px;
+  }
+  
+  /* ปรับ Layout ใหม่ */
+  .chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* เรียงจากบนลงล่าง */
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .bubble {
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    position: relative;
+    max-width: fit-content; /* ให้กว้างเท่ากับเนื้อหา */
+  }
+  
+  /* ดันไปทางซ้าย */
+  .left-bubble {
+    align-self: flex-start;
+    margin-left: 10px;
+  }
+  
+  /* ดันไปทางขวา */
+  .right-bubble {
+    align-self: flex-end;
+    margin-right: 10px;
+  }
+  
+  /* สีพื้นหลัง */
+  .gray { background: #7a7a7a; color: white; }
+  .green { background: #00c300; color: white; }
+  .light { background: #e5e5e5; color: black; }
+  
+  /* หาง Bubble ฝั่งซ้าย (สีเทาเข้ม) */
+  .left-bubble::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 8px 10px 8px 0;
+    border-style: solid;
+    border-color: transparent #7a7a7a transparent transparent;
+  }
+  
+  /* หาง Bubble ฝั่งขวา */
+  .right-bubble::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 8px 0 8px 10px;
+    border-style: solid;
+  }
+  
+  /* แยกสีหางตามสีพื้นหลังของฝั่งขวา */
+  .right-bubble.green::after { border-color: transparent transparent transparent #00c300; }
+  .right-bubble.light::after { border-color: transparent transparent transparent #e5e5e5; }
+  
+  /* ปุ่ม X */
+  .close {
+    position: absolute;
+    bottom: 30px;
+    right: 5px;
+    font-size: 10px;
+    cursor: pointer;
+    color: #373636;
+    background-color: #b3b2b2;
+    width: 16px;       
+    height: 16px;  
+    display: flex;      
+    align-items: center;  
+    justify-content: center;
+    border-radius: 50%;
+  }
